@@ -1,11 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Platform, StyleSheet, View } from 'react-native';
+import WelcomePage from './components/WelcomePage'
+
+
 
 export default function App() {
+
+  if (Platform.Version === 25) {
+    console.log('Running on Nougat')
+  }
+  
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
+      <WelcomePage />
       <StatusBar style="auto" />
     </View>
   );
@@ -14,8 +22,15 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    ...Platform.select({
+      ios: {
+        backgroundColor: 'red'
+      }, android: {
+        backgroundColor: 'green'
+      },
+      default: {
+        backgroundColor: 'blue',
+      }
+    })
   },
 });
