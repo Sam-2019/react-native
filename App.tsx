@@ -10,7 +10,7 @@ export default function App() {
   if (Platform.Version === 25) {
     console.log('Running on Nougat')
   }
-  
+
   return (
     <View style={styles.container}>
       <WelcomePage />

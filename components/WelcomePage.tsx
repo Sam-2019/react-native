@@ -11,7 +11,6 @@ import {
 } from "react-native";
 
 export interface Props {
-    name: string;
     count?: number;
 }
 
