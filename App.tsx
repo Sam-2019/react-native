@@ -3,8 +3,6 @@ import React from 'react';
 import { Platform, StyleSheet, View } from 'react-native';
 import WelcomePage from './components/WelcomePage'
 
-
-
 export default function App() {
 
   if (Platform.Version === 25) {
