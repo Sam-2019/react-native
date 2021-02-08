@@ -10,7 +10,8 @@ import Crypto from './Projects/Crypto/Crypto'
 
 
 export interface Props {
-  name: string;
+  navigation?: any;
+  name?: string;
 }
 
 function DetailsScreen() {
@@ -21,14 +22,14 @@ function DetailsScreen() {
   );
 }
 
-function HomeScreen() {
+const HomeScreen: React.FC<Props> = (props) => {
   return (
     <ScrollView>
       <View style={styles.container}>
         <Text style={styles.head}>Cryptocurrencies</Text>
         <Button
           title="Go to Details"
-          onPress={() => navigation.navigate('Details')}
+          onPress={() => props.navigation.navigate('Details')}
         />
         <Crypto />
       </View>
@@ -37,13 +38,13 @@ function HomeScreen() {
   );
 }
 
-function SettingsScreen() {
+const SettingsScreen: React.FC<Props> = (props) => {
   return (
     <View style={styles.container}>
       <Text>Settings!</Text>
       <Button
         title="Go to Details"
-        onPress={() => navigation.navigate('Details')}
+        onPress={() => props.navigation.navigate('Details')}
       />
     </View>
   );
@@ -73,7 +74,7 @@ function SettingsStackScreen() {
 
 const Tab = createBottomTabNavigator();
 
-export default function App() {
+ const App: React.FC<Props> = (props) => {
   return (
     <NavigationContainer>
       <Tab.Navigator
