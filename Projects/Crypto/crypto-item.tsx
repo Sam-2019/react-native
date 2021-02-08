@@ -1,17 +1,23 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native';
 
-const CryptoItem = () => {
+export interface Props {
+    name: string;
+    symbol?: string;
+    price?: number;
+}
+
+const CryptoItem: React.FC<Props> = ({ name, symbol, price }) => {
     return (
         <View style={styles.item}>
 
             <View style={styles.logoXname}>
                 <Text style={styles.logo}> Hello </Text>
-                <Text style={styles.name}> Bitcoin </Text>
+                <Text style={styles.name}> {name} </Text>
             </View>
 
-            <Text style={styles.symbol}>BTC</Text>
-            <Text style={styles.price}>$16,735.96</Text>
+            <Text style={styles.symbol}>{symbol}</Text>
+            <Text style={styles.price}>${price}</Text>
         </View>
     )
 }
