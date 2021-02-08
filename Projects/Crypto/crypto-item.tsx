@@ -1,22 +1,20 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native';
-import CryptoItem from './crypto-item'
 
-const Crypto = () => {
+const CryptoItem = () => {
     return (
-        <View style={styles.container}>
+        <View style={styles.item}>
             <Text>
                 Hello
   </Text>
-            <CryptoItem />
         </View>
     )
 }
 
-export default Crypto
+export default CryptoItem
 
 const styles = StyleSheet.create({
-    container: {
+    item: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
