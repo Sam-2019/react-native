@@ -4,10 +4,10 @@ import { StyleSheet, Text, View } from 'react-native';
 export interface Props {
     name: string;
     symbol?: string;
-    price?: number;
+    price_usd?: string;
 }
 
-const CryptoItem: React.FC<Props> = ({ name, symbol, price }) => {
+const CryptoItem: React.FC<Props> = ({ name, symbol, price_usd }) => {
     return (
         <View style={styles.item}>
 
@@ -17,7 +17,7 @@ const CryptoItem: React.FC<Props> = ({ name, symbol, price }) => {
             </View>
 
             <Text style={styles.symbol}>{symbol}</Text>
-            <Text style={styles.price}>${price}</Text>
+            <Text style={styles.price}>${price_usd}</Text>
         </View>
     )
 }
@@ -32,8 +32,9 @@ const styles = StyleSheet.create({
         borderColor: 'gray',
         borderWidth: 1,
         borderRadius: 5,
-        padding: 10,
-        marginBottom: 5
+        paddingTop: 10,
+        paddingBottom: 10,
+        marginBottom: 7
     },
     logoXname: {
         flexDirection: 'row',

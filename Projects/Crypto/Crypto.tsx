@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, FlatList, ActivityIndicator } from 'react-native';
 import CryptoItem from './crypto-item'
-
-
-
+import axios from 'axios';
 
 const Crypto = () => {
     return (
@@ -14,10 +12,7 @@ const Crypto = () => {
                 <Text style={styles.price}>Price (US$)</Text>
             </View>
             <FlatListBasics2 />
-
         </View>
-
-
     )
 }
 
@@ -51,23 +46,30 @@ const FlatListBasics2: React.FC<Props> = (props) => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        fetch('https://reactnative.dev/movies.json')
-            .then((response) => response.json())
-            .then((json) => setData(json.movies))
-            .catch((error) => console.error(error))
-            .finally(() => setLoading(false));
-    }, []);
+
+        async function getUser() {
+            try {
+                const response = await axios({
+                    method: 'post',
+                    url: 'https://api.coinlore.net/api/tickers/',
+                })
+                // console.log((response.data.data))
+                setLoading(false);
+                setData((response.data.data))
+            } catch (error) {
+                console.error(error);
+            }
+        }; getUser()
+    }, [])
 
 
     return (
-        <View style={{ flex: 1, padding: 24 }}>
+        <View style={styles.container}>
             {isLoading ? <ActivityIndicator /> : (
                 <FlatList
                     data={data}
                     keyExtractor={({ id }, index) => id}
-                    renderItem={({ item }) => (
-                        <Text>{item.title}, {item.releaseYear}</Text>
-                    )}
+                    renderItem={({ item }) => <CryptoItem  {...item} />}
                 />
             )}
         </View>
@@ -77,9 +79,7 @@ const FlatListBasics2: React.FC<Props> = (props) => {
 const styles = StyleSheet.create({
     container: {
         borderRadius: 5,
-        padding: 10,
-        borderWidth: 1,
-        borderColor: 'yellow',
+        // paddingBottom: 10,
     },
     item: {
         padding: 10,
