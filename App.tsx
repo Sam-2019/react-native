@@ -1,13 +1,24 @@
 
 import * as React from 'react';
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 import Crypto from './Projects/Crypto/Crypto'
 
+
+
 export interface Props {
   name: string;
+}
+
+function DetailsScreen() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Details!</Text>
+    </View>
+  );
 }
 
 function HomeScreen() {
@@ -15,6 +26,10 @@ function HomeScreen() {
     <ScrollView>
       <View style={styles.container}>
         <Text style={styles.head}>Cryptocurrencies</Text>
+        <Button
+          title="Go to Details"
+          onPress={() => navigation.navigate('Details')}
+        />
         <Crypto />
       </View>
     </ScrollView>
@@ -26,7 +41,33 @@ function SettingsScreen() {
   return (
     <View style={styles.container}>
       <Text>Settings!</Text>
+      <Button
+        title="Go to Details"
+        onPress={() => navigation.navigate('Details')}
+      />
     </View>
+  );
+}
+
+const HomeStack = createStackNavigator();
+
+function HomeStackScreen() {
+  return (
+    <HomeStack.Navigator>
+      <HomeStack.Screen name="Home" component={HomeScreen} />
+      <HomeStack.Screen name="Details" component={DetailsScreen} />
+    </HomeStack.Navigator>
+  );
+}
+
+const SettingsStack = createStackNavigator();
+
+function SettingsStackScreen() {
+  return (
+    <SettingsStack.Navigator>
+      <SettingsStack.Screen name="Settings" component={SettingsScreen} />
+      <SettingsStack.Screen name="Details" component={DetailsScreen} />
+    </SettingsStack.Navigator>
   );
 }
 
@@ -57,8 +98,8 @@ export default function App() {
           inactiveTintColor: 'gray',
         }}
       >
-        <Tab.Screen name="Home" component={HomeScreen} options={{ tabBarBadge: 3 }} />
-        <Tab.Screen name="Settings" component={SettingsScreen} />
+        <Tab.Screen name="Home" component={HomeStackScreen} options={{ tabBarBadge: 3 }} />
+        <Tab.Screen name="Settings" component={SettingsStackScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );
