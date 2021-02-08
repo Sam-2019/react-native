@@ -74,7 +74,7 @@ function SettingsStackScreen() {
 
 const Tab = createBottomTabNavigator();
 
- const App: React.FC<Props> = (props) => {
+const App: React.FC<Props> = (props) => {
   return (
     <NavigationContainer>
       <Tab.Navigator
@@ -121,3 +121,4 @@ const styles = StyleSheet.create({
   }
 });
 
+export default App
