@@ -6,6 +6,10 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 import Crypto from './Projects/Crypto/Crypto'
 
+export interface Props {
+  name: string;
+}
+
 function HomeScreen() {
   return (
     <ScrollView>
@@ -38,14 +42,14 @@ export default function App() {
 
             if (route.name === 'Home') {
               iconName = focused
-                ? 'ios-information-circle'
-                : 'ios-information-circle-outline';
+                ? 'home'
+                : 'home-outline';
             } else if (route.name === 'Settings') {
               iconName = focused ? 'ios-list-box' : 'ios-list';
             }
 
             // You can return any component that you like here!
-            return <Ionicons name="md-checkmark-circle" size={32} color="green" />;
+            return <Ionicons name={iconName} size={size} color={color} />;
           },
         })}
         tabBarOptions={{
