@@ -45,7 +45,7 @@ export default function App() {
                 ? 'home'
                 : 'home-outline';
             } else if (route.name === 'Settings') {
-              iconName = focused ? 'ios-list-box' : 'ios-list';
+              iconName = focused ? 'settings' : 'settings-outline';
             }
 
             // You can return any component that you like here!
