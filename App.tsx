@@ -5,17 +5,12 @@ import Crypto from './Projects/Crypto/Crypto'
 
 
 export default function App() {
-
   return (
-    <ScrollView>
-      <View style={styles.container}>
-        <Text style={styles.head}>Cryptocurrencies</Text>
+    <View style={styles.container}>
+      <Text style={styles.head}>Cryptocurrencies</Text>
 
-        <View><Crypto /></View>
-
-      </View>
-    </ScrollView>
-
+      <Crypto />
+    </View>
   );
 }
 

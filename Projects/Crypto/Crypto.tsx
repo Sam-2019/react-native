@@ -18,22 +18,22 @@ const Crypto = () => {
 
 export default Crypto
 
-const FlatListBasics = () => {
-    return (
-        <View>
-            <FlatList
-                data={[
-                    { key: 1, name: 'Bitcoin', symbol: 'BTC', price: 16735.96 },
-                    { key: 2, name: 'Bitcoin Cash', symbol: 'BT Cash', price: 506.64 },
-                    { key: 3, name: 'Etherium', symbol: 'ETH', price: 0.521819 },
-                    { key: 4, name: 'Ripple', symbol: 'XRP', price: 1.00 },
-                    { key: 5, name: 'DogeCoin', symbol: 'DC', price: 2.0 },
-                ]}
-                renderItem={({ item }) => <CryptoItem  {...item} />}
-            />
-        </View>
-    );
-}
+// const FlatListBasics = () => {
+//     return (
+//         <View>
+//             <FlatList
+//                 data={[
+//                     { key: 1, name: 'Bitcoin', symbol: 'BTC', price: 16735.96 },
+//                     { key: 2, name: 'Bitcoin Cash', symbol: 'BT Cash', price: 506.64 },
+//                     { key: 3, name: 'Etherium', symbol: 'ETH', price: 0.521819 },
+//                     { key: 4, name: 'Ripple', symbol: 'XRP', price: 1.00 },
+//                     { key: 5, name: 'DogeCoin', symbol: 'DC', price: 2.0 },
+//                 ]}
+//                 renderItem={({ item }) => <CryptoItem  {...item} />}
+//             />
+//         </View>
+//     );
+// }
 
 export interface Props {
     id?: number;
