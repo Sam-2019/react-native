@@ -5,7 +5,7 @@ import Crypto from './Projects/Crypto/Crypto'
 
 const App = () => {
   return (
-    <Crypto />
+    <AppFile />
   );
 }
 
