@@ -12,6 +12,11 @@ const SettingsScreen: React.FC<Props> = (props) => {
                 title="Go to Details"
                 onPress={() => props.navigation.navigate('Details')}
             />
+
+            <Button
+                onPress={() => props.navigation.navigate('Notification')}
+                title="Go to notifications"
+            />
         </View>
     );
 }
