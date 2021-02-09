@@ -22,7 +22,7 @@ const Crypto = () => {
 
             </View>
 
-            <FlatListBasics />
+            <FlatListBasics2 />
             
         </View>
     )
@@ -30,22 +30,22 @@ const Crypto = () => {
 
 export default Crypto
 
-const FlatListBasics = () => {
-    return (
-        <View>
-            <FlatList
-                data={[
-                    { key: '1', name: 'Bitcoin', symbol: 'BTC', price_usd: '16735.96' },
-                    { key: '2', name: 'Bitcoin Cash', symbol: 'BT Cash', price_usd: ' 506.64' },
-                    { key: '3', name: 'Etherium', symbol: 'ETH', price_usd: '0.521819' },
-                    { key: '4', name: 'Ripple', symbol: 'XRP', price_usd: '1.00' },
-                    { key: '5', name: 'DogeCoin', symbol: 'DC', price_usd: '2.0' },
-                ]}
-                renderItem={({ item }) => <CryptoItem  {...item} />}
-            />
-        </View>
-    );
-}
+// const FlatListBasics = () => {
+//     return (
+//         <View>
+//             <FlatList
+//                 data={[
+//                     { key: '1', name: 'Bitcoin', symbol: 'BTC', price_usd: '16735.96' },
+//                     { key: '2', name: 'Bitcoin Cash', symbol: 'BT Cash', price_usd: ' 506.64' },
+//                     { key: '3', name: 'Etherium', symbol: 'ETH', price_usd: '0.521819' },
+//                     { key: '4', name: 'Ripple', symbol: 'XRP', price_usd: '1.00' },
+//                     { key: '5', name: 'DogeCoin', symbol: 'DC', price_usd: '2.0' },
+//                 ]}
+//                 renderItem={({ item }) => <CryptoItem  {...item} />}
+//             />
+//         </View>
+//     );
+// }
 
 export interface Props {
     id?: number;
@@ -53,40 +53,40 @@ export interface Props {
     releaseYear?: string;
 }
 
-// const FlatListBasics2: React.FC<Props> = (props) => {
-//     const [isLoading, setLoading] = useState(true);
-//     const [data, setData] = useState([]);
+const FlatListBasics2: React.FC<Props> = (props) => {
+    const [isLoading, setLoading] = useState(true);
+    const [data, setData] = useState([]);
 
-//     useEffect(() => {
+    useEffect(() => {
 
-//         async function getUser() {
-//             try {
-//                 const response = await axios({
-//                     method: 'post',
-//                     url: 'https://api.coinlore.net/api/tickers/',
-//                 })
-//                 console.log((response.data.data))
-//                 setLoading(false);
-//                 setData((response.data.data))
-//             } catch (error) {
-//                 console.error(error);
-//             }
-//         }; getUser()
-//     }, [])
+        async function getUser() {
+            try {
+                const response = await axios({
+                    method: 'post',
+                    url: 'https://api.coinlore.net/api/tickers/',
+                })
+                console.log((response.data.data))
+                setLoading(false);
+                setData((response.data.data))
+            } catch (error) {
+                console.error(error);
+            }
+        }; getUser()
+    }, [])
 
 
-//     return (
-//         <View style={styles.container}>
-//             {isLoading ? <ActivityIndicator /> : (
-//                 <FlatList
-//                     data={data}
-//                     keyExtractor={({ id }, index) => id}
-//                     renderItem={({ item }) => <CryptoItem  {...item} />}
-//                 />
-//             )}
-//         </View>
-//     );
-// }
+    return (
+        <View style={styles.container}>
+            {isLoading ? <ActivityIndicator /> : (
+                <FlatList
+                    data={data}
+                    keyExtractor={({ id }, index) => id}
+                    renderItem={({ item }) => <CryptoItem  {...item} />}
+                />
+            )}
+        </View>
+    );
+}
 
 const styles = StyleSheet.create({
     container: {

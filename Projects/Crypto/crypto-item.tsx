@@ -12,7 +12,7 @@ const CryptoItem: React.FC<Props> = ({ name, symbol, price_usd }) => {
         <View style={styles.item}>
 
             <View style={styles.logoXname}>
-                <Text style={styles.logo}> Hell</Text>
+                <Text style={styles.logo}></Text>
                 <Text style={styles.name}> {name}</Text>
             </View>
 
