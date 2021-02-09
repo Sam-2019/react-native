@@ -34,9 +34,9 @@ const styles = StyleSheet.create({
         borderColor: 'gray',
         borderWidth: 1,
         borderRadius: 5,
-        paddingTop: 10,
-        paddingBottom: 10,
+        paddingVertical: 10,
         marginBottom: 7,
+        marginHorizontal: 5,
     },
     logoXname: {
         flexDirection: 'row',

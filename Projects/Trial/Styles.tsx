@@ -6,11 +6,5 @@ export const styles = StyleSheet.create({
         padding: 10,
         backgroundColor: 'aliceblue'
     },
-    head: {
-        padding: 10,
-        textAlign: 'center',
-        backgroundColor: 'aliceblue',
-        color: 'black',
-        fontWeight: '700',
-    }
+
 });

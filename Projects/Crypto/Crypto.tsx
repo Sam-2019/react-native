@@ -6,6 +6,9 @@ import axios from 'axios';
 const Crypto = () => {
     return (
         <View style={styles.container}>
+
+            <Text style={styles.head}>Cryptocurrencies</Text>
+
             <View style={styles.list}>
 
                 <View style={styles.name}>
@@ -82,8 +85,14 @@ function DataFetch() {
 
 const styles = StyleSheet.create({
     container: {
-        borderRadius: 5,
-        paddingBottom: 10,
+        backgroundColor: 'aliceblue',
+        flex: 1
+    },
+    head: {
+        paddingVertical: 15,
+        textAlign: 'center',
+        color: 'black',
+        fontWeight: '700',
     },
     item: {
         padding: 10,
@@ -95,8 +104,9 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         borderRadius: 5,
-        paddingTop: 10,
-        paddingBottom: 10,
+        paddingVertical: 10,
+        paddingHorizontal: 5,
+
     },
     name: {
         width: 120
