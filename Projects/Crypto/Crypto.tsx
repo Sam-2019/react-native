@@ -22,15 +22,15 @@ const Crypto = () => {
 
             </View>
 
-            <FlatListBasics2 />
-            
+            <DataFetch />
+
         </View>
     )
 }
 
 export default Crypto
 
-// const FlatListBasics = () => {
+// function DataHardCoded() {
 //     return (
 //         <View>
 //             <FlatList
@@ -47,13 +47,7 @@ export default Crypto
 //     );
 // }
 
-export interface Props {
-    id?: number;
-    title?: string;
-    releaseYear?: string;
-}
-
-const FlatListBasics2: React.FC<Props> = (props) => {
+function DataFetch() {
     const [isLoading, setLoading] = useState(true);
     const [data, setData] = useState([]);
 
@@ -64,16 +58,15 @@ const FlatListBasics2: React.FC<Props> = (props) => {
                 const response = await axios({
                     method: 'post',
                     url: 'https://api.coinlore.net/api/tickers/',
-                })
-                console.log((response.data.data))
+                });
+                console.log((response.data.data));
                 setLoading(false);
-                setData((response.data.data))
+                setData((response.data.data));
             } catch (error) {
                 console.error(error);
             }
-        }; getUser()
-    }, [])
-
+        }; getUser();
+    }, []);
 
     return (
         <View style={styles.container}>
@@ -81,8 +74,7 @@ const FlatListBasics2: React.FC<Props> = (props) => {
                 <FlatList
                     data={data}
                     keyExtractor={({ id }, index) => id}
-                    renderItem={({ item }) => <CryptoItem  {...item} />}
-                />
+                    renderItem={({ item }) => <CryptoItem {...item} />} />
             )}
         </View>
     );

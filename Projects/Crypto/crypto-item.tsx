@@ -1,11 +1,7 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native';
+import { Props } from './Props'
 
-export interface Props {
-    name: string;
-    symbol: string;
-    price_usd: string;
-}
 
 const CryptoItem: React.FC<Props> = ({ name, symbol, price_usd }) => {
     return (
@@ -23,8 +19,6 @@ const CryptoItem: React.FC<Props> = ({ name, symbol, price_usd }) => {
             <View style={styles.price}>
                 <Text>${price_usd} </Text>
             </View>
-
-
 
         </View>
     )
