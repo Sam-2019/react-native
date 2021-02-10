@@ -1,13 +1,14 @@
 
 import * as React from 'react';
-import { Text, View, Button } from 'react-native';
+import {  View, Button } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import { Props } from '../Props'
-import { styles } from '../Styles'
 
-const NotificationsScreen: React.FC<Props> = (props) => {
+const NotificationsScreen: React.FC<Props> = () => {
+  const navigation = useNavigation()
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Button onPress={() => props.navigation.goBack()} title="Go back home" />
+        <Button onPress={() => navigation.goBack()} title="Go back home" />
       </View>
     );
   }

@@ -1,26 +1,31 @@
+import * as React from "react";
+import { Text, View, Button } from "react-native";
+import { DrawerActions, useNavigation } from "@react-navigation/native";
+import { Props } from "../Props";
+import { styles } from "../Styles";
 
-import * as React from 'react';
-import { Text, View, ScrollView, Button } from 'react-native';
-import { Props } from '../Props'
-import { styles } from '../Styles'
+const HomeScreen: React.FC<Props> = () => {
+  const navigation = useNavigation();
+  return (
+    <View style={styles.container}>
+      <Text>Home!</Text>
 
-const HomeScreen: React.FC<Props> = (props) => {
-    return (
-        <View style={styles.container}>
-            <Text>Home!</Text>
-            
-            <Button
-                title="Go to Details"
-                onPress={() => props.navigation.navigate('Details')}
-            />
+      <Button
+        title="Go to Details"
+        onPress={() => navigation.navigate("Details")}
+      />
 
-            <Button
-                onPress={() => props.navigation.navigate('Notification')}
-                title="Go to notifications"
-            />
-            
-        </View>
-    );
-}
+      <Button
+        onPress={() => navigation.navigate("Notification")}
+        title="Go to notifications"
+      />
 
-export default HomeScreen
+      <Button
+        title="Toggle drawer"
+        onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}
+      />
+    </View>
+  );
+};
+
+export default HomeScreen;
