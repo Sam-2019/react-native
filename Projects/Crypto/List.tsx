@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { StyleSheet, View, FlatList, ActivityIndicator } from "react-native";
 import CryptoItem from "./crypto-item";
 import axios from "axios";
+import { Loader } from "./styles";
 
 // function Content() {
 //     return (
@@ -50,11 +51,12 @@ function Content() {
     };
   }, []);
 
-
   return (
-    <View>
+    <>
       {isLoading ? (
-        <ActivityIndicator />
+        <View style={Loader.style}>
+          <ActivityIndicator />
+        </View>
       ) : (
         <FlatList
           data={data}
@@ -62,7 +64,7 @@ function Content() {
           renderItem={({ item }) => <CryptoItem {...item} />}
         />
       )}
-    </View>
+    </>
   );
 }
 
