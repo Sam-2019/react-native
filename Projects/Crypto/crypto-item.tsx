@@ -1,9 +1,9 @@
 import React from "react";
 import { StyleSheet, Text, View, Pressable } from "react-native";
-import { Props } from "./Props";
+import { CryptoItemProps } from "./types";
 import { useNavigation } from "@react-navigation/native";
 
-const CryptoItem: React.FC<Props> = ({ name, symbol, price_usd, id }) => {
+function CryptoItem({ name, symbol, price_usd, id }: CryptoItemProps) {
   const navigation = useNavigation();
   return (
     <View>
@@ -12,7 +12,7 @@ const CryptoItem: React.FC<Props> = ({ name, symbol, price_usd, id }) => {
           navigation.navigate("Crypto Detail", {
             name,
             id: symbol,
-            otherParam: 'anything you want here',
+            otherParam: "anything you want here",
           })
         }
         style={styles.item}
@@ -32,7 +32,7 @@ const CryptoItem: React.FC<Props> = ({ name, symbol, price_usd, id }) => {
       </Pressable>
     </View>
   );
-};
+}
 
 export default CryptoItem;
 
