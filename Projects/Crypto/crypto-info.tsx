@@ -1,17 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View, ActivityIndicator, Image } from "react-native";
 import axios from "axios";
+import { CryptoInfoProps } from "./types";
+import { Loader } from "./styles";
 
-interface Props {
-  route?: any;
-  blog_url?: any;
-  logo_url?: any;
-  whitepaper_url?: any;
-  website_url?: any;
-  facebook_url?: any;
-}
-
-const CryptoInfo: React.FC<Props> = ({ route }) => {
+function CryptoInfo({ route }: CryptoInfoProps) {
   // console.log(route.params.id);
 
   const [isLoading, setLoading] = useState(true);
@@ -35,7 +28,7 @@ const CryptoInfo: React.FC<Props> = ({ route }) => {
         });
 
         if (!didCancel) {
-        //  console.log(response.data);
+          //  console.log(response.data);
           setLoading(false);
           setData(response.data[0]);
         }
@@ -51,19 +44,23 @@ const CryptoInfo: React.FC<Props> = ({ route }) => {
   }, []);
 
   return (
-    <View>
+    <>
       {isLoading ? (
-        <ActivityIndicator />
+        <View style={Loader.style}>
+          <ActivityIndicator />
+        </View>
       ) : (
         <View style={styles.page}>
           <Text>{data.blog_url}</Text>
 
-          <Image
-            style={styles.tinyLogo}
-            source={{
-              uri: data.logo_url,
-            }}
-          />
+          <View style={styles.logowrapper}>
+            <Image
+              style={styles.tinyLogo}
+              source={{
+                uri: data.logo_url,
+              }}
+            />
+          </View>
 
           <View style={styles.item}>
             <Text>{data.whitepaper_url}</Text>
@@ -78,28 +75,39 @@ const CryptoInfo: React.FC<Props> = ({ route }) => {
           </View>
         </View>
       )}
-    </View>
+    </>
   );
-};
+}
 
 export default CryptoInfo;
 
 const styles = StyleSheet.create({
   page: {
     flexDirection: "column",
-
-
   },
   item: {
-
     alignItems: "center",
-
   },
   logo: {},
   name: {},
+  logowrapper: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
 
   tinyLogo: {
-    width: 50,
-    height: 50,
+    width: 100,
+    height: 100,
+    borderBottomLeftRadius: 30,
+    borderBottomRightRadius: 15,
+    borderTopRightRadius: 30,
+    borderTopLeftRadius: 15,
+    overflow: "hidden",
+  },
+  loader: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
