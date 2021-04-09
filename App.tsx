@@ -1,13 +1,10 @@
-
-import * as React from 'react';
-import AppFile from './Projects/Trial/AppFile'
-import Crypto from './Projects/Crypto/Crypto'
+import * as React from "react";
+import AppFile from "./Projects/Trial/AppFile";
+import Crypto from "./Projects/Crypto/Crypto";
+import Music from "./Projects/Music/Home";
 
 const App = () => {
-  return (
-    <Crypto />
-  );
-}
+  return <Music />;
+};
 
-
-export default App
+export default App;
