@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from "react";
 import { Animated, Easing } from "react-native";
 
 export const usePulse = (startDelay = 500) => {
+
   const Scale = useRef(new Animated.Value(1)).current;
 
   const pulse = () => {
@@ -27,4 +28,5 @@ export const usePulse = (startDelay = 500) => {
   }, []);
 
   return Scale;
+  
 };
