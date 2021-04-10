@@ -12,4 +12,5 @@ const Loading = () => {
     </Animated.View>
   );
 };
+
 export default Loading;
