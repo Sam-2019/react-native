@@ -5,11 +5,9 @@ const File = () => {
   const y_translate = useRef(new Animated.Value(0)).current;
   const [expand, setExpand] = useState(false);
 
-  const expand_collapse_Function = () => {};
-
   const menu_moveY = y_translate.interpolate({
     inputRange: [0, 1],
-    outputRange: [0, -100],
+    outputRange: [0, -500],
   });
 
   function openMenu() {
@@ -33,16 +31,10 @@ const File = () => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.body}>
-        {expand ? (
-          <Button onPress={hideMenu} title="Hide" />
-        ) : (
-          <Button onPress={openMenu} title="Open" />
-        )}
-      </View>
+      <View style={styles.body}></View>
       <Animated.View
         style={[
-          styles.footer_menu,
+          styles.another,
           {
             transform: [
               {
@@ -53,7 +45,11 @@ const File = () => {
         ]}
       >
         <View style={styles.tip_menu}>
-          <Text>Hello</Text>
+          {expand ? (
+            <Button onPress={hideMenu} title="Hide" />
+          ) : (
+            <Button onPress={openMenu} title="Open" />
+          )}
         </View>
       </Animated.View>
     </View>
@@ -68,11 +64,13 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "red",
   },
-  footer_menu: {
-    position: "absolute",
+
+  another: {
+    position: "fixed",
     width: "100%",
-    height: "70%",
+    height: "100%",
     bottom: 0,
+    top: "95%",
     backgroundColor: "#1fa67a",
     alignItems: "center",
   },
