@@ -1,7 +1,8 @@
 import React, { useRef, useState } from "react";
-import { View, Animated, Button } from "react-native";
+import { View, Animated, Button, TouchableOpacity } from "react-native";
 import ArtistItem from "./artiste-item";
 import { styles } from "../styles";
+import { data } from "./Artist";
 
 const ClickItem = () => {
   const y_translate = useRef(new Animated.Value(0)).current;
@@ -34,22 +35,11 @@ const ClickItem = () => {
   return (
     <View style={styles.container}>
       <View style={styles.body}>
-
-      {expand ? (
-            <Button onPress={hideMenu} title="Hide" />
-          ) : (
-            <Button onPress={openMenu} title="Open" />
-          )}
-
-
-          
-        <ArtistItem
-          imageURL='
-      "https://media.gq.com/photos/5c8ef5e207a98f3722295cb8/16:9/w_1280,c_limit/j-cole-cover-gq-april-2019_social.jpg",
-   '
-          name="Marley G"
-          key={1}
-        />
+        {data.map((item) => (
+      
+            <ArtistItem {...item} key={item.key}  open={openMenu}/>
+    
+        ))}
       </View>
       <Animated.View
         style={[
@@ -64,11 +54,10 @@ const ClickItem = () => {
         ]}
       >
         <View style={styles.tip_menu}>
-          {expand ? (
-            <Button onPress={hideMenu} title="Hide" />
-          ) : (
-            <Button onPress={openMenu} title="Open" />
-          )}
+          <Button onPress={hideMenu} title="Hide" />
+          <Text>
+
+          </Text>
         </View>
       </Animated.View>
     </View>
