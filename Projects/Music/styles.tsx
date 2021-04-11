@@ -21,7 +21,6 @@ export const styles = StyleSheet.create({
     paddingVertical: 10,
     marginLeft: 5,
     marginRight: 5,
-
   },
   artistItem: {
     backgroundColor: "white",
@@ -51,5 +50,22 @@ export const styles = StyleSheet.create({
     backgroundColor: "green",
     paddingVertical: 10,
     marginTop: 40,
+  },
+  body: {
+    flex: 1,
+    backgroundColor: "red",
+  },
+  another: {
+    position: "fixed",
+    width: "100%",
+    height: "100%",
+    bottom: 0,
+    top: "95%",
+    backgroundColor: "#1fa67a",
+    alignItems: "center",
+  },
+  tip_menu: {},
+  button: {
+    backgroundColor: "blue",
   },
 });
