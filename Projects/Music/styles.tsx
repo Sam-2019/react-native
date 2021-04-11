@@ -60,7 +60,7 @@ export const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
     bottom: 0,
-    top: "95%",
+    top: "100%",
     backgroundColor: "#1fa67a",
     alignItems: "center",
   },
