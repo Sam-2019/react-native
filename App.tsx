@@ -5,7 +5,7 @@ import Music from "./Projects/Music/Home";
 import File from './Projects/Music/Artist/clickArtist'
 
 const App = () => {
-  return <Music />;
+  return <File />;
 };
 
 export default App;
