@@ -1,7 +1,6 @@
-import React, { useRef, useState } from "react";
-import { View, Animated, Pressable } from "react-native";
+import React from "react";
+import { View, Pressable } from "react-native";
 import ArtistItem from "./artiste-item";
-import Detail from "../Album/Albums";
 import { styles } from "../styles";
 
 const ClickItem = ({ name, imageURL, id }) => {

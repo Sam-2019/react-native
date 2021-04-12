@@ -1,5 +1,5 @@
-import React, { useRef, useState } from "react";
-import { View, Button, Animated } from "react-native";
+import React from "react";
+import { View, Button } from "react-native";
 import { AlbumItemProps } from "../types";
 
 function AlbumItem({ action }: AlbumItemProps) {
