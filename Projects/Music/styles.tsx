@@ -1,12 +1,21 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
+  another: {
+    position: "fixed",
+    width: "100%",
+    height: "100%",
+    bottom: 0,
+    top: "100%",
+    backgroundColor: "#1fa67a",
+    alignItems: "center",
+  },
   container: {
-    backgroundColor: "white",
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
   },
+  pressable: {},
   artists: {
     flex: 1,
     flexDirection: "column",
@@ -23,11 +32,9 @@ export const styles = StyleSheet.create({
     marginRight: 5,
   },
   artistItem: {
-    backgroundColor: "white",
     marginBottom: 5,
     marginLeft: 5,
     marginRight: 5,
-    borderColor: "#808080",
     marginTop: 5,
   },
   layout: {},
@@ -45,6 +52,7 @@ export const styles = StyleSheet.create({
   name: {
     fontSize: 10,
     textAlign: "center",
+    color: "white",
   },
   contentContainerStyle: {
     backgroundColor: "green",
@@ -53,16 +61,6 @@ export const styles = StyleSheet.create({
   },
   body: {
     flex: 1,
-    backgroundColor: "red",
-  },
-  another: {
-    position: "fixed",
-    width: "100%",
-    height: "100%",
-    bottom: 0,
-    top: "100%",
-    backgroundColor: "#1fa67a",
-    alignItems: "center",
   },
   tip_menu: {},
   button: {
